@@ -46,7 +46,7 @@
     "react-dom": "18.2.0",
     "react-messenger-customer-chat": "0.8.0",
     "react-notion-x": "6.6.2",
-    "react-share": "4.4.0",
+    "react-share": "4.4.1",
     "smoothscroll-polyfill": "0.4.4",
     "typed.js": "2.0.12",
     "valine": "1.5.1"

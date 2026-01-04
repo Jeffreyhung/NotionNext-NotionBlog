@@ -15,8 +15,12 @@ export const ArticleLock = props => {
     if (!validPassword(p?.value)) {
       const tips = document.getElementById('tips')
       if (tips) {
-        tips.innerHTML = ''
-        tips.innerHTML = `<div class='text-red-500 animate__shakeX animate__animated'>${locale.COMMON.PASSWORD_ERROR}</div>`
+        // Use React state instead of innerHTML to prevent XSS
+        tips.textContent = ''
+        const errorDiv = document.createElement('div')
+        errorDiv.className = 'text-red-500 animate__shakeX animate__animated'
+        errorDiv.textContent = locale.COMMON.PASSWORD_ERROR
+        tips.appendChild(errorDiv)
       }
     }
   }

@@ -16,15 +16,13 @@ export const LayoutCategoryIndex = props => {
         <div id="category-list" className="duration-200 flex flex-wrap mx-8">
           {categories.map(category => {
             return (
-              <Link key={category.name} href={`/category/${category.name}`} passHref>
-                <div
+              <Link key={category.name} href={`/category/${category.name}`}
                   className={
                     ' duration-300 dark:hover:text-white px-5 cursor-pointer py-2 hover:text-indigo-400'
                   }
                 >
                   <i className="mr-4 fas fa-folder" />
                   {category.name}({category.count})
-                </div>
               </Link>
             )
           })}

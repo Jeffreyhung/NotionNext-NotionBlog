@@ -7,6 +7,15 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Code } from 'react-notion-x/build/third-party/code'
 
+// Wrapper for react-notion-x compatibility with Next.js 13+
+const NotionLink = ({ href, children, ...props }) => {
+  return (
+    <Link href={href} legacyBehavior>
+      <a {...props}>{children}</a>
+    </Link>
+  )
+}
+
 const Equation = dynamic(() =>
   import('react-notion-x/build/third-party/equation').then(async (m) => {
     // 化学方程式
@@ -89,7 +98,7 @@ const NotionPage = ({ post }) => {
         Modal,
         Pdf,
         nextImage: Image,
-        nextLink: Link
+        nextLink: NotionLink
       }} />
 
       <PrismMac />

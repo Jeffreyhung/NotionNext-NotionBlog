@@ -5,9 +5,8 @@ import React from 'react'
  * @param {type:['horizontal','vertical'],isOpen} props
  * @returns
  */
-const Collapse = props => {
+const Collapse = ({ type = 'vertical', isOpen = false, className = '', children }) => {
   const collapseRef = React.useRef(null)
-  const type = props.type || 'vertical'
   const collapseSection = element => {
     const sectionHeight = element.scrollHeight
     const sectionWidth = element.scrollWidth
@@ -56,19 +55,18 @@ const Collapse = props => {
 
   React.useEffect(() => {
     const element = collapseRef.current
-    if (props.isOpen) {
+    if (isOpen) {
       expandSection(element)
     } else {
       collapseSection(element)
     }
-  }, [props.isOpen])
+  }, [isOpen, type])
 
   return (
-    <div ref={collapseRef} style={type === 'vertical' ? { height: '0px' } : { width: '0px' }} className={'overflow-hidden duration-200 ' + props.className }>
-      {props.children}
+    <div ref={collapseRef} style={type === 'vertical' ? { height: '0px' } : { width: '0px' }} className={'overflow-hidden duration-200 ' + className}>
+      {children}
     </div>
   )
 }
-Collapse.defaultProps = { isOpen: false }
 
 export default Collapse

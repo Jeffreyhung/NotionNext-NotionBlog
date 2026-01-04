@@ -37,26 +37,24 @@ const LatestPostsGroup = ({ latestPosts, siteInfo }) => {
             key={post.id}
             title={post.title}
             href={`${BLOG.SUB_PATH}/${post.slug}`}
-            passHref
+            className={'my-2 flex'}
           >
-            <a className={'my-2 flex'}>
-              <div
-                className="w-20 h-16 bg-cover bg-center bg-no-repeat"
-                style={{ backgroundImage: headerImage }}
-              />
-              <div
-                className={
-                  (selected ? ' text-indigo-400 ' : 'dark:text-gray-400 ') +
-                  ' text-sm overflow-x-hidden hover:text-indigo-600 px-2 duration-200 w-full rounded ' +
-                  'hover:text-white dark:hover:text-indigo-400 cursor-pointer items-center flex'
-                }
-              >
-                <div>
-                  <div className='text-line-2'>{post.title}</div>
-                  <div className="text-gray-500">{post.lastEditedTime}</div>
-                </div>
+            <div
+              className="w-20 h-16 bg-cover bg-center bg-no-repeat"
+              style={{ backgroundImage: headerImage }}
+            />
+            <div
+              className={
+                (selected ? ' text-indigo-400 ' : 'dark:text-gray-400 ') +
+                ' text-sm overflow-x-hidden hover:text-indigo-600 px-2 duration-200 w-full rounded ' +
+                'hover:text-white dark:hover:text-indigo-400 cursor-pointer items-center flex'
+              }
+            >
+              <div>
+                <div className='text-line-2'>{post.title}</div>
+                <div className="text-gray-500">{post.lastEditedTime}</div>
               </div>
-            </a>
+            </div>
           </Link>
         )
       })}

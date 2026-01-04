@@ -25,10 +25,10 @@ const PaginationNumber = ({ page, totalPage }) => {
                     : `${pagePrefix}/page/${currentPage - 1}`,
                   query: router.query.s ? { s: router.query.s } : {}
                 }}
+                rel="prev"
+                className={`${currentPage === 1 ? 'invisible' : 'block'} pb-0.5 border-white dark:border-indigo-700 hover:border-indigo-400 dark:hover:border-indigo-400 w-6 text-center cursor-pointer duration-200  hover:font-bold`}
             >
-                <a rel="prev" className={`${currentPage === 1 ? 'invisible' : 'block'} pb-0.5 border-white dark:border-indigo-700 hover:border-indigo-400 dark:hover:border-indigo-400 w-6 text-center cursor-pointer duration-200  hover:font-bold`}>
-                    <i className="fas fa-angle-left" />
-                </a>
+                <i className="fas fa-angle-left" />
             </Link>
 
             {pages}
@@ -39,10 +39,10 @@ const PaginationNumber = ({ page, totalPage }) => {
                   pathname: `${pagePrefix}/page/${currentPage + 1}`,
                   query: router.query.s ? { s: router.query.s } : {}
                 }}
+                rel="next"
+                className={`${+showNext ? 'block' : 'invisible'} pb-0.5 border-b border-indigo-300 dark:border-indigo-700 hover:border-indigo-400 dark:hover:border-indigo-400 w-6 text-center cursor-pointer duration-500  hover:font-bold`}
             >
-                <a rel="next" className={`${+showNext ? 'block' : 'invisible'} pb-0.5 border-b border-indigo-300 dark:border-indigo-700 hover:border-indigo-400 dark:hover:border-indigo-400 w-6 text-center cursor-pointer duration-500  hover:font-bold`}>
-                    <i className="fas fa-angle-right" />
-                </a>
+                <i className="fas fa-angle-right" />
             </Link>
         </div>
   )
@@ -50,15 +50,13 @@ const PaginationNumber = ({ page, totalPage }) => {
 
 function getPageElement(page, currentPage, pagePrefix) {
   return (
-        <Link href={page === 1 ? `${pagePrefix}/` : `${pagePrefix}/page/${page}`} key={page} passHref>
-            <a className={
+        <Link href={page === 1 ? `${pagePrefix}/` : `${pagePrefix}/page/${page}`} key={page} className={
                 (page + '' === currentPage + ''
                   ? 'font-bold bg-indigo-400 dark:bg-indigo-500 text-white '
                   : 'border-b duration-500 border-indigo-300 hover:border-indigo-400 ') +
                 ' border-white dark:border-indigo-700 dark:hover:border-indigo-400 cursor-pointer pb-0.5 w-6 text-center font-light hover:font-bold'
             } >
                 {page}
-            </a>
         </Link>
   )
 }

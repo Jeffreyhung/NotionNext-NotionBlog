@@ -1,4 +1,5 @@
-import BLOG from 'blog.config'
+import React from 'react'
+import BLOG from '@/blog.config'
 import 'animate.css'
 import '@/styles/globals.css'
 // custom
@@ -20,6 +21,7 @@ import '@waline/client/dist/waline.css'
 
 import { GlobalContextProvider } from '@/lib/global'
 import { DebugPanel } from '@/components/DebugPanel'
+import { loadExternalResource } from '@/lib/utils'
 
 const MyApp = ({ Component, pageProps }) => {
   // 外部插

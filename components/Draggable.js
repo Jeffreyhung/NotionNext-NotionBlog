@@ -3,8 +3,7 @@ import React from 'react'
  * 可拖拽组件
  */
 
-export const Draggable = (props) => {
-  const { children } = props
+export const Draggable = ({ children, left = 0, top = 0 }) => {
   let currentObj, offsetX, offsetY// 初始化变量，定义备用变量
 
   React.useEffect(() => {
@@ -134,5 +133,3 @@ export const Draggable = (props) => {
      {children}
   </div>
 }
-
-Draggable.defaultProps = { left: 0, top: 0 }
